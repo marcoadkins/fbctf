@@ -1,3 +1,6 @@
+const sass = require('node-sass');
+
+
 module.exports = function(grunt) {
   grunt.initConfig({
     env: {
@@ -7,6 +10,7 @@ module.exports = function(grunt) {
     },
     sass: {
       options: {
+        implementation: sass,
         sourceMapEmbed: true
       },
       dist: {
@@ -39,10 +43,7 @@ module.exports = function(grunt) {
         transform: [
           [
             'babelify', {
-              presets: [
-                // 'es2015',
-                'react'
-              ]
+              presets: ["@babel/preset-env"]
             }
           ]
         ]

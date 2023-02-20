@@ -6,5 +6,6 @@
 ../node_modules/keycode
 ../node_modules/jquery
 ../node_modules/typed.js
-
+[options]
+exact_by_default=false
 

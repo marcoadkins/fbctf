@@ -1,6 +1,8 @@
 var $ = require('jquery');
 
+
 module.exports = {
+
   getURLParameter: function(name) {
     // eslint-disable-next-line no-sparse-arrays
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
@@ -19,7 +21,7 @@ module.exports = {
    *   - callback function for when the load is successful
    */
   loadComponent: function(target, component, cb) {
-    var $target = typeof target === 'object' ? target : $(target);
+    var $target = $.type(target) === 'object' ? target : $(target);
 
     $target.load(component, function(response, status) {
       if (status === "error") {
@@ -34,7 +36,7 @@ module.exports = {
           component: component
         });
 
-        if (typeof cb === 'function') {
+        if ($.type(cb) === 'function') {
           cb();
         }
       }

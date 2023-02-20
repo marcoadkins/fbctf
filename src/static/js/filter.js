@@ -18,7 +18,7 @@ module.exports = {
    * @return string
    *   - filter name
    */
-  getFilterName: function(filterSelector: string, filters: Object): string {
+  getFilterName: function(filterSelector, filters) {
     for (let key in filters) {
       if (filters[key] === filterSelector) {
         return key;
@@ -36,7 +36,7 @@ module.exports = {
    * @param filterValue (string)
    *   - filter state (on/off)
    */
-  setFilterState: function(filterName: string, filterValue: string) {
+  setFilterState: function(filterName, filterValue) {
     let d = new Date();
     // Persist with expiration 24 hours
     d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
@@ -52,7 +52,7 @@ module.exports = {
    * @return string
    *   - state of filter ('on'/'off')
    */
-  getFilterState: function(filterName: string): string {
+  getFilterState: function(filterName) {
     let name = filterName + "=";
     let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
@@ -71,7 +71,7 @@ module.exports = {
    * @param filters (Object)
    *   - Object to map filter name and filter selector
    */
-  rememberFilters: function(filters: Object) {
+  rememberFilters: function(filters) {
     for (let key in filters) {
       if (isFilterSet(key)) {
         let ftype;
@@ -128,7 +128,7 @@ module.exports = {
    * @param secondOnly (boolean)
    *   - apply to not main filters
    */
-  resetFilters: function(mainOnly: boolean, secondOnly: boolean) {
+  resetFilters: function(mainOnly, secondOnly) {
     let mainFilters = [
       'Filter-Main-category',
       'Filter-Main-status'
@@ -154,7 +154,7 @@ module.exports = {
    * @return Object
    *   - Object with all filter names maped to their selectors
    */
-  detectFilters: function(): Object {
+  detectFilters: function() {
     let filterList = [
       'Filter-category',
       'Filter-status'

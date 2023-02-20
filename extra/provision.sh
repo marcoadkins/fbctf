@@ -319,8 +319,8 @@ fi
         install_nginx "$CTF_PATH" "$MODE" "$TYPE" "$EMAIL" "$DOMAIN" "$DOCKER" "$MULTIPLE_SERVERS" "$HHVM_SERVER"
 
         log "Installing unison 2.48.3. Remember to install the same version on your host machine"
-        package xz-utils
-        install_unison
+        #package xz-utils
+       # install_unison
     fi
 
     log "Creating attachments folder, and setting ownership to www-data"

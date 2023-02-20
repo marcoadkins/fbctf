@@ -32,7 +32,7 @@ function closeHoverPopup(event) {
 
 function openAndLoad($modal, loadPath, cb) {
   Utils.loadComponent($modal, loadPath, function() {
-    if (typeof cb === 'function') {
+    if ($.type(cb) === 'function') {
       cb();
     }
     $modal.addClass(ACTIVE_CLASS);

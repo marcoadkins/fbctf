@@ -69,7 +69,7 @@ function verifyTeamPassword() {
   }
 }
 
-function verifyTeamLogo(): {isCustom: boolean, type: string, logo: number, error?: any} {
+function verifyTeamLogo(){
   try {
     // src is filled in by image preview, see fb-ctf.js
     var customLogoSrc = $('#custom-emblem-preview').attr('src');
@@ -142,7 +142,7 @@ module.exports = {
   registerTeam: function() {
     var name = verifyTeamName('register');
     var password = verifyTeamPassword();
-    var logoInfo: {isCustom: boolean, type: string, logo: string, error?: any} = verifyTeamLogo();
+    var logoInfo = verifyTeamLogo();
     var token = '';
     if ($('.fb-form input[name="token"]').length > 0) {
       token = $('.fb-form input[name="token"]')[0].value;
@@ -165,7 +165,7 @@ module.exports = {
   registerNames: function() {
     var name = verifyTeamName('register');
     var password = verifyTeamPassword();
-    var logoInfo: {isCustom: boolean, type: string, logo: string, error?: any} = verifyTeamLogo();
+    var logoInfo = verifyTeamLogo();
     var token = '';
     if ($('.fb-form input[name="token"]').length > 0) {
       token = $('.fb-form input[name="token"]')[0].value;

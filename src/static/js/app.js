@@ -5,6 +5,7 @@ var Admin = require('./admin');
 var $ = require('jquery');
 require('./plugins');
 
+
 // Add the transitionend event to a global var
 (function(window) {
   var transitions = {
@@ -16,7 +17,7 @@ require('./plugins');
       elem = document.createElement('div');
 
   for (var t in transitions) {
-    if (typeof elem.style[t] !== 'undefined') {
+    if ($.type(elem.style[t]) !== 'undefined') {
       window.transitionEnd = transitions[t];
       break;
     }
@@ -77,3 +78,4 @@ $(document).ready(function() {
     page: section
   });
 });
+
